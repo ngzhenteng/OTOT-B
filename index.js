@@ -10,7 +10,7 @@ const corsOptions = {
     optionsSuccessStatus: 200
 }
 app.use(cors(corsOptions)) // config cors so that front-end can use
-const PORT = 9999;
+const PORT = process.env.PORT || 9999;
 const router = express.Router();
 
 router.get("/user", getUser);

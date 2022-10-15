@@ -13,10 +13,10 @@ app.use(cors(corsOptions)) // config cors so that front-end can use
 const PORT = process.env.PORT || 9999;
 const router = express.Router();
 
-router.get("/user", getUser);
+router.get("/user/:username", getUser);
 router.post("/user", addUser);
 router.put("/user", updateUser);
-router.delete("/user", deleteUser);
+router.delete("/user/:username", deleteUser);
 
 app.use("/api/users", router);
 

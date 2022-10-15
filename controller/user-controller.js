@@ -2,7 +2,7 @@ import { modelGetUser, modelAddUser, modelUpdateUser, modelDeleteUser } from "..
 
 export function getUser(req, res) {
     try {
-        const { username } = req.body;
+        const username = req.params.username;
         const user = modelGetUser(username);
         return res.status(200).json({message: "Successful get request", userDetails: user});
     } catch (err) {
@@ -34,7 +34,7 @@ export function updateUser(req, res) {
 }
 export function deleteUser(req, res) {
     try {
-        const { username } = req.body;
+        const username = req.params.username;
         modelDeleteUser(username);
         return res.status(200).json({message: `Successfully deleted user ${username} from the records`});
     } catch (err) {

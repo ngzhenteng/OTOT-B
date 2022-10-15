@@ -1,4 +1,12 @@
-var userRecords = {}
+var userRecords = {
+    "johndoerocks": {"name": "John Doe", "email": "magicmike@gmail.com"},
+    "appleeverocks": {"name": "Apple Eve", "email": "adamisjealous@gmail.com"},
+    "fairygodmother": {"name": "Fairy Mother", "email": "god@gmail.com"},
+}
+
+export function modelGetAllUsers() {
+    return userRecords;
+}
 
 export function modelAddUser(username, detailJson) {
     if (username in userRecords) {

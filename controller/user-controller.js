@@ -46,7 +46,11 @@ export function updateUser(req, res) {
         const updatedDetails = modelUpdateUser(username, newUserDetails);
         return res.status(200).json({message: "Successful update user request", userDetails: updatedDetails});
     } catch (err) {
-        return res.status(500).json({message: err.message});
+        if (err.message == "Username does not exist") {
+            return res.status(404).json({message: err.message});
+        } else {
+            return res.status(500).json({message: err.message});
+        } 
     }
 }
 export function deleteUser(req, res) {
@@ -55,6 +59,10 @@ export function deleteUser(req, res) {
         modelDeleteUser(username);
         return res.status(200).json({message: `Successfully deleted user ${username} from the records`});
     } catch (err) {
-        return res.status(500).json({message: err.message});
+        if (err.message == "Username does not exist") {
+            return res.status(404).json({message: err.message});
+        } else {
+            return res.status(500).json({message: err.message});
+        }    
     }
 }

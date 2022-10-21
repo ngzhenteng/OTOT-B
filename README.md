@@ -1,9 +1,18 @@
 # OTOT-B
-CS3219 OTOT-B Repo
+## CS3219 OTOT-B Repo
 
-API Documentation
+## API Documentation
 
 All requests correspond to the endpoint "/api/users/user"
+
+### URLs
+Deployed Endpoint on Google App Engine: 
+    
+    https://cs3219-365613.as.r.appspot.com
+
+Localhost Endpoint: 
+
+    http://localhost:9999
 
 ## Get request
 execute a get request to localhost:9999/api/users/user/<username>, the server responds with the user detail json.

@@ -13,7 +13,7 @@ To start the server on localhost, run the following
 All requests correspond to the endpoint "/api/users/user"
 
 ### URLs
-Deployed URL on Google App Engine: 
+Deployed URL on Google App Engine(Please do not spam this link as requests cost money): 
     
     https://cs3219-365613.as.r.appspot.com
 

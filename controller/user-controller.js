@@ -11,6 +11,9 @@ export function getAllUsers(req, res) {
 
 export function getUser(req, res) {
     try {
+        if (!req.params.username) {
+            return res.status(400).json({message: `Username has to be appended at the end of to the URL as such: '/api/users/user/<username>'`});
+        }
         const username = req.params.username;
         const user = modelGetUser(username);
         console.log("Printing user")
@@ -27,7 +30,7 @@ export function getUser(req, res) {
 export function addUser(req, res) {
     try {
         if (!req.params.username) {
-            return res.status(400).json({message: `Username has to be appended at the end of to the URL as such: "/api/users/user/<username>`});
+            return res.status(400).json({message: `Username has to be appended at the end of to the URL as such: '/api/users/user/<username>'`});
         }
         const username = req.params.username;
         const detailJson = req.body;
@@ -42,6 +45,9 @@ export function addUser(req, res) {
 }
 export function updateUser(req, res) {
     try {
+        if (!req.params.username) {
+            return res.status(400).json({message: `Username has to be appended at the end of to the URL as such: '/api/users/user/<username>'`});
+        }
         const username = req.params.username;
         const addDetailsJson = req.body;
         const existingUserDetails = modelGetUser(username);
@@ -61,6 +67,9 @@ export function updateUser(req, res) {
 }
 export function deleteUser(req, res) {
     try {
+        if (!req.params.username) {
+            return res.status(400).json({message: `Username has to be appended at the end of to the URL as such: '/api/users/user/<username>'`});
+        }
         const username = req.params.username;
         modelDeleteUser(username);
         return res.status(200).json({message: `Successfully deleted user ${username} from the records`});

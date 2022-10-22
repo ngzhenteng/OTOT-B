@@ -17,10 +17,10 @@ export const base_prefix = "/api/users"
 export const user_prefix = "/user"
 
 router.get("/", getAllUsers);
-router.get(user_prefix + "/:username", getUser);
-router.post(user_prefix + "/:username", addUser);
-router.put(user_prefix + "/:username", updateUser);
-router.delete(user_prefix + "/:username", deleteUser);
+router.get(user_prefix + "/:username?", getUser);
+router.post(user_prefix + "/:username?", addUser);
+router.put(user_prefix + "/:username?", updateUser);
+router.delete(user_prefix + "/:username?", deleteUser);
 
 app.use(base_prefix, router);
 

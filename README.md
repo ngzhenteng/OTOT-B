@@ -24,6 +24,8 @@ Localhost URL:
 ## Get request
 execute a get request to \<url>/api/users/user/\<username>, the server responds with the user detail json.
 
+Alternatively you can get all user at \<url>/api/users/
+
 
 ## Post request
 execute a post request to \<url>/api/users/user/\<username>

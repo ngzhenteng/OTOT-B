@@ -26,11 +26,17 @@ export function getUser(req, res) {
 }
 export function addUser(req, res) {
     try {
+        if (!req.params.username) {
+            return res.status(400).json({message: `Username has to be appended at the end of to the URL as such: "/api/users/user/<username>`});
+        }
         const username = req.params.username;
         const detailJson = req.body;
         modelAddUser(username, detailJson);
         return res.status(200).json({message: `Successfully added user ${username} to the records`});
     } catch (err) {
+        if (err.message == "Username already exists") {
+            return res.status(400).json({message: err.message});
+        }
         return res.status(500).json({message: err.message});
     }
 }
@@ -47,7 +53,7 @@ export function updateUser(req, res) {
         return res.status(200).json({message: "Successful update user request", userDetails: updatedDetails});
     } catch (err) {
         if (err.message == "Username does not exist") {
-            return res.status(404).json({message: err.message});
+            return res.status(400).json({message: err.message});
         } else {
             return res.status(500).json({message: err.message});
         } 

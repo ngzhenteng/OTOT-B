@@ -21,13 +21,13 @@ describe("add users", () => {
          });
          
         // Test to get single student record
-        it("should return 500 server error due to duplicate username", (done) => {
+        it("should return 400 client side error due to duplicate username", (done) => {
             const username = "marymcbeth";
             chai.request(expressApp)
             .post(base_prefix + user_prefix + `/${username}`)
             .send({"name":"mary mcbeth", "email": "mary@gmail.com"})
             .end((err, res) => {
-                res.should.have.status(500);
+                res.should.have.status(400);
                 done();
             });
          });

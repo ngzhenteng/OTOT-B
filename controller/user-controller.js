@@ -59,7 +59,7 @@ export function updateUser(req, res) {
         return res.status(200).json({message: "Successful update user request", userDetails: updatedDetails});
     } catch (err) {
         if (err.message == "Username does not exist") {
-            return res.status(400).json({message: err.message});
+            return res.status(404).json({message: err.message});
         } else {
             return res.status(500).json({message: err.message});
         } 
